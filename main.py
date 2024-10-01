@@ -1,6 +1,6 @@
 #Sistema especialista humano Py
 #Aluno Paulo Henrique F. dos Santos
-
+#Base de conhecimento
 base_conhecimento = {
     "lentidão": {
         "sinais": ["computador lento", "carregamento demorado"],
@@ -154,7 +154,7 @@ base_conhecimento = {
     },
 }
 
-
+#Memoria de Trabalho
 memoria_trabalho = {}
 
 def coletar_informacoes():
@@ -162,14 +162,14 @@ def coletar_informacoes():
     problema = input().lower().replace(" ", "_")
     memoria_trabalho['problema'] = problema
 
-
+#Maquina de inferencia
 def diagnosticar():
     problema = memoria_trabalho.get('problema', '')
     for chave, info in base_conhecimento.items():
         if chave in problema:
             return chave, info
     return None, None
-
+#Explanação de dados
 def apresentar_solucao(chave, info):
     print(f"Problema identificado: {chave.capitalize()}")
     print("Possíveis causas:")
